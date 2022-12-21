@@ -1,0 +1,17 @@
+{% extends 'APPVET/base.html' %}
+{% block content %}
+
+    {% if user.is_superuser %}
+        <div class=" alert alert-info display-1 text-center"> LISTADO DE CLIENTES </div>
+            <form method = 'post'>
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" value="AGREGAR CLIENTES" class="btn btn-info">
+            </form>
+            <br><br>
+            <a class="btn btn-danger" href="../clientes"> VOLVER A CLIENTES </a>
+
+    {% else %}
+        <div class=" alert alert-danger display-1 text-center">  USUARIO NO AUTORIZADO PARA CREAR CLIENTES </div>
+    {% endif %}
+{% endblock content %}

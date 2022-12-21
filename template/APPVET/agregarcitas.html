@@ -1,0 +1,26 @@
+{% extends 'APPVET/base.html' %}
+{% block content %}
+
+    {% if user.is_superuser %}
+    <div class=" alert alert-info display-1 text-center"> LISTADO DE CITAS </div>
+    <form method = 'post'>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="AGREGAR CITA" class="btn btn-info">
+        <a class="btn btn-secondary" href="../addatencion"> AGREGAR TIPOS DE ATENCION </a>
+    </form>
+    <br><br>
+    <a class="btn btn-danger" href="../citas"> VOLVER A CITAS </a>
+
+    {% else %}
+    
+    <div class=" alert alert-info display-1 text-center"> LISTADO DE CITAS </div>
+    <form method = 'post'>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="AGREGAR CITA" class="btn btn-info">
+    </form>
+    <br><br>
+    <a class="btn btn-danger" href="../citas"> VOLVER A CITAS </a>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/d9c0a1e3-f675-447b-b3fa-8518db0c0680/AppServices/subscriptions/d9c0a1e3-f675-447b-b3fa-8518db0c0680/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/VETERINARIA",
+    "appService.deploySubpath": "."
+}

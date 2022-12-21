@@ -1,0 +1,97 @@
+{% extends 'APPVET/base.html' %}
+{% block content %}
+
+{% if user.is_superuser %}
+
+<div class="alert alert-info display-1 text-center"> LISTADO DE CITAS </div>
+
+    {% if cita %}
+
+    <table class="table table-striped table-inverse table-responsive">
+        <thead  class="thead-inverse" 
+            <tr >
+              <th>FECHA (MM/DD/AAAA)</th>
+              <th>FUNCIONARIO</th>
+              <th>CLIENTE</th>
+              <th>MASCOTA</th>
+              <th>TIPO ATENCION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cit in cita %}
+            <!--  poner los cabezales de la tabla de la base de datos   -->
+            <tr>
+                <td> {{ cit.fecha  }}</td>
+                <td> {{ cit.funcionario  }}</td>
+                <td> {{ cit.cliente   }}</td>
+                <td> {{ cit.mascota  }}</td>
+                <td> {{ cit.atencion  }}</td>
+                <td><a class="btn btn-primary btn-sm" href="/editarcitas/{{ cit.id }}"  role="button"> Actualizar📝 </a></td>
+                <td><a class="btn btn-primary btn-sm" href="/eliminarcitas/{{ cit.id }}"  role="button"> Eliminar ❌ </a></td> 
+
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <div class="alert alert-primary" role="alert">
+        <strong> NO SE ENCONTRARON CITAS </strong>
+    </div>
+
+    {% endif %}
+
+    <a href="../" class="btn btn-danger"> VOLVER </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="../addcitas" class="btn btn-info float-mid"> AGREGAR CITA </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+
+
+    {% else %}
+
+    <div class="alert alert-info display-1 text-center"> LISTADO DE CITAS </div>
+
+    {% if cita %}
+
+    <table class="table table-striped table-inverse table-responsive">
+        <thead  class="thead-inverse" 
+            <tr >
+              <th>FECHA (MM/DD/AAAA)</th>
+              <th>FUNCIONARIO</th>
+              <th>CLIENTE</th>
+              <th>MASCOTA</th>
+              <th>TIPO ATENCION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cit in cita %}
+            <!--  poner los cabezales de la tabla de la base de datos   -->
+            <tr>
+                <td> {{ cit.fecha  }}</td>
+                <td> {{ cit.funcionario  }}</td>
+                <td> {{ cit.cliente   }}</td>
+                <td> {{ cit.mascota  }}</td>
+                <td> {{ cit.atencion  }}</td>
+
+                <td><a class="btn btn-primary btn-sm" href="/editarcitas/{{ cit.id }}"  role="button"> Actualizar📝 </a></td>
+                <td><a class="btn btn-primary btn-sm" href="/eliminarcitas/{{ cit.id }}"  role="button"> Eliminar ❌ </a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <div class="alert alert-primary" role="alert">
+        <strong> NO SE ENCONTRARON CITAS </strong>
+    </div>
+
+    {% endif %}
+
+    <a href="../" class="btn btn-danger"> VOLVER </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="../addcitas" class="btn btn-info float-mid"> AGREGAR CITA </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {% endif %}
+    {% endblock content %}

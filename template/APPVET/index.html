@@ -1,0 +1,21 @@
+{% extends 'APPVET/base.html' %}
+
+{% block content %}
+    <h2>REGISTRO DE CITAS DE LA VETERINARIA PET-MANIA</h2>
+    <br><br>
+
+    {% if user.is_anonymous %}
+    <h4>¡¡Hola Bienvenido !! </h4>
+
+    {% else %}
+    
+    {% if user.is_superuser %}
+    <h4>¡Bienvenido administrador: {{user.username}}! </h4>
+    
+    {% else %}
+    <h4>¡Bienvenido {{user.first_name}}! </h4>
+
+    {% endif %}
+    {% endif %}
+
+{% endblock content %}

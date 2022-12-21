@@ -1,0 +1,22 @@
+{% extends 'APPVET/base.html' %}
+{% block content %}
+
+    {% if user.is_superuser %}
+    
+    <div class=" alert alert-info display-1 text-center"> AGREGAR MASCOTAS </div>
+    <form method = 'post'>
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="submit" value="AGREGAR MASCOTA" class="btn btn-info">
+      <!-- ---------------  CREAR VISTAS PARA AGREGAR RAZA Y TIPO DE MASCOTA  ---------------- -->
+      <a class="btn btn-secondary" href="../addraza"> AGREGAR RAZA </a>
+      <a class="btn btn-secondary" href="../addtipo"> AGREGAR TIPO DE MASCOTA </a>
+    </form>
+<br><br>
+<a class="btn btn-danger" href="../clientes"> VOLVER A CLIENTES </a>
+
+{% else %}
+<div class=" alert alert-danger display-1 text-center">  USUARIO NO AUTORIZADO PARA CREAR MASCOTAS </div>
+
+{% endif %}
+{% endblock content %}

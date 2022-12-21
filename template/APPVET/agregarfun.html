@@ -1,0 +1,22 @@
+{% extends 'APPVET/base.html' %}
+{% block content %}
+
+    {% if user.is_superuser %}
+
+    <div class=" alert alert-info display-1 text-center"> LISTADO DE FUNCIONARIOS </div>
+
+    <form method = 'post'>
+        {{ form.as_p }}
+        {% csrf_token %}
+
+        <input type="submit" value="AGREGAR FUNCIONARIO" class="btn btn-info">
+    </form>
+<br>
+     <a class="btn btn-danger" href="../func"> VOLVER A FUNCIONARIOS </a>
+
+    {% else %}
+
+    <div class=" alert alert-danger display-1 text-center">  USUARIO NO AUTORIZADO PARA CREAR FUNCIONARIOS </div>
+
+    {% endif %}
+{% endblock content %}
