@@ -47,12 +47,14 @@ def logout_view(request):
 
 ##FUNCIONARIOS
 @login_required
+@csrf_exempt
 def listarfuncionario(request):
     fun = funcionarios.objects.all()
     data = {'funcionario': fun}
     return render(request, 'APPVET/vistafun.html', data)
 #AGREGAR
 @login_required
+@csrf_exempt
 def agregarfun(request):
     form = formFunc()
     if request.method == 'POST' : 
@@ -66,12 +68,14 @@ def agregarfun(request):
 
 ## VISTA CITAS
 @login_required
+@csrf_exempt
 def listarcitas(request):
     citas = cita.objects.all()
     data = {'cita': citas}
     return render(request, 'APPVET/vistacitas.html', data)
 #AGREGAR
 @login_required
+@csrf_exempt
 def agregarcitas(request):
     form = formCita()
     if request.method == 'POST' : 
@@ -85,12 +89,14 @@ def agregarcitas(request):
 
 ## VISTA CLIENTES
 @login_required
+@csrf_exempt
 def listarcliente(request):
     cliente = clientes.objects.all()
     data = {'clientes': cliente}
     return render(request, 'APPVET/vistaclient.html', data)
 #AGREGAR
 @login_required
+@csrf_exempt
 def agregarcliente(request):
     form = formCliente()
     if request.method == 'POST' : 
@@ -104,12 +110,14 @@ def agregarcliente(request):
 
 ## VISTA MASCOTAS
 @login_required
+@csrf_exempt
 def listarmascotas(request):
     masc = mascota.objects.all()
     data = {'mascota': masc}
     return render(request, 'APPVET/vistamasc.html', data)
 #AGREGAR
 @login_required
+@csrf_exempt
 def agregarmascota(request):
     form = formMasc()
     if request.method == 'POST' : 
@@ -128,6 +136,7 @@ def agregarmascota(request):
 
 #TIPO ATECION
 @login_required
+@csrf_exempt
 def agregaratencion(request):
     form = formTipoat()
     if request.method == 'POST' : 
@@ -141,6 +150,7 @@ def agregaratencion(request):
 
 #TIPO MASCOTA
 @login_required
+@csrf_exempt
 def agregartipomascota(request):
     form = formTipom()
     if request.method == 'POST' : 
@@ -153,6 +163,7 @@ def agregartipomascota(request):
 
 #TIPO RAZA
 @login_required
+@csrf_exempt
 def agregarraza(request):
     form = formRaza()
     if request.method == 'POST' : 
@@ -171,11 +182,13 @@ def agregarraza(request):
 
 
 #CLIENTES
+@csrf_exempt
 def eliminarcliente(request, id):
     clientex = clientes.objects.get(id= id)
     clientex.delete()
     return redirect('/clientes')
 
+@csrf_exempt
 def actualzarcliente (request, id) :
     clientex = clientes.objects.get(id= id)
     form = formCliente (instance=clientex)
@@ -189,11 +202,12 @@ def actualzarcliente (request, id) :
 
 
     #FUNCIONARIOS
+@csrf_exempt
 def eliminarfuncionario(request, id):
     funcionariox = funcionarios.objects.get(id= id)
     funcionariox.delete()
     return redirect('/func')
-
+@csrf_exempt
 def actualizarfuncionario (request, id) :
     funcionariox = funcionarios.objects.get(id= id)
     form = formFunc (instance=funcionariox)
@@ -207,11 +221,12 @@ def actualizarfuncionario (request, id) :
 
 
     #CITAS
+@csrf_exempt
 def eliminarcitas(request, id):
     citax = cita.objects.get(id= id)
     citax.delete()
     return redirect('/citas')
-
+@csrf_exempt
 def actualizarcitas (request, id) :
     citax = cita.objects.get(id= id)
     form = formCita (instance=citax)
