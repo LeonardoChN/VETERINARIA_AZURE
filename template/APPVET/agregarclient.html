@@ -2,7 +2,7 @@
 {% block content %}
 
     {% if user.is_superuser %}
-        <div class=" alert alert-info display-1 text-center"> LISTADO DE CLIENTES </div>
+        <div class=" alert alert-info display-1 text-center"> AGREGAR NUEVO CLIENTES </div>
             <form method = 'post'>
                 {{ form.as_p }}
                 {% csrf_token %}
